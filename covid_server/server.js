@@ -10,8 +10,8 @@ app.use(cors());
 let countries;
 let datas;
 
-Data((data) => {
-    datas = data;
+Data((op) => {
+    datas = op;
 })
 Countries((country) => {
   countries = country;
@@ -22,10 +22,10 @@ app.get('/getCountries', (req, res) => {
 })
 
 app.get("*", (req, res) => {
-  country = req.params
-  string = JSON.stringify(country)
-  country = string.slice(7, string.length - 2)
-  let info = data.filter((data) => data.country === country);
+  let country = req.params
+  const countryString = JSON.stringify(country)
+  country = countryString.slice(7, countryString.length - 2)
+  const info = datas.filter((data) => data.country === country);
   res.send(info);
 });
 

@@ -22,8 +22,11 @@ class App extends React.Component {
   let url = new URL("http://localhost:3000/"+ event.target.value);
  fetch(url)
  .then(response => response.json())
- .then(response => this.setState({ data: response}))
-
+ .then(response => {
+   this.setState({ data: response})
+  console.log(response)
+  })
+  
   };
   render() {
     return (
@@ -56,8 +59,8 @@ class App extends React.Component {
                 return (
                   <tr key={index}>
                     <td>{dat.week}</td>
-                    <td>{dat.weekly_count}</td>
-                    <td>{dat.indicator}</td>
+                    <td>{dat.deaths}</td>
+                    <td>{dat.cases}</td>
                   </tr>
                 );
               })
