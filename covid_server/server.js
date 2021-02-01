@@ -19,7 +19,7 @@ Countries((country) => {
 app.get("/getCountries", (req, res) => {
   if (countries == []) {
     res.status(500);
-    res.send("covid api is offline");
+    res.send("covid-19 data api is offline");
   }
   res.send(countries);
 });
