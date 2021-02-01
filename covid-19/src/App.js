@@ -23,18 +23,25 @@ class App extends React.Component {
     };
     this.handleSelect = this.handleSelect.bind(this);
   }
-componentDidMount() {
-  fetch("http://localhost:3000/getCountries")
-  .then((response) => response.json())
-  .then((response) => {
-    this.setState({ countries: response})
-  })}
-handleSelect = (event) => {
+  componentDidMount() {
+    fetch("http://localhost:3000/getCountries")
+      .then((response) => response.json())
+      .then((response) => {
+        this.setState({ countries: response });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+  handleSelect = (event) => {
     let url = new URL("http://localhost:3000/" + event.target.value);
     fetch(url)
       .then((response) => response.json())
       .then((response) => {
         this.setState({ data: response });
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
   render() {
@@ -66,8 +73,7 @@ handleSelect = (event) => {
                     <th className="fw8 tc bb b--black-20 tl pb3 pr3 ">
                       Deaths
                     </th>
-                    <th className="fw8 tc bb b--black-20 tl pb3 pr3 ">
-                      Cases</th>
+                    <th className="fw8 tc bb b--black-20 tl pb3 pr3 ">Cases</th>
                   </tr>
                 </thead>
                 <tbody className="lh-copy">
