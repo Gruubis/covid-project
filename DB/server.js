@@ -1,5 +1,4 @@
 const express = require("express");
-const request = require("request");
 const { Countries, Data } = require("./functions.js");
 const cors = require("cors");
 
@@ -32,6 +31,6 @@ app.get("*", (req, res) => {
   res.send(info);
 });
 
-app.listen(3000, () => {
-  console.log("Listening on 3000");
+app.listen(3001, () => {
+  console.log("listening on 3001");
 });

@@ -24,7 +24,7 @@ class App extends React.Component {
     this.handleSelect = this.handleSelect.bind(this);
   }
   componentDidMount() {
-    fetch("http://localhost:3000/getCountries")
+    fetch("http://localhost:3001/getCountries")
       .then((response) => response.json())
       .then((response) => {
         this.setState({ countries: response });
@@ -34,7 +34,7 @@ class App extends React.Component {
       });
   }
   handleSelect = (event) => {
-    let url = new URL("http://localhost:3000/" + event.target.value);
+    let url = new URL("http://localhost:3001/" + event.target.value);
     fetch(url)
       .then((response) => response.json())
       .then((response) => {
